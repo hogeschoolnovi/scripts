@@ -15,7 +15,7 @@ echo "Die link verwijst je door naar een webpagina waar je tijd in het lab kunt 
 echo " "
 read "?Als dit gelukt is kun je hier op enter drukken..."
 echo " "
-echo "Het duurt ongeveer 15 minuten voordat je labverzoek verwerkt is."
+echo "Als dit je eerste keer is duurt het ongeveer 15 minuten voordat je labverzoek verwerkt is."
 echo "Ondertussen kun je gaan naar https://enterprise.hackthebox.com en inloggen met je novi-education mailadres en HTB wachtwoord."
 echo " "
 read "?Druk op enter als dit gelukt is..."
