@@ -1,0 +1,35 @@
+#!/usr/bin/env zsh
+
+sudo killall openvpn
+rm ~/Downloads/Dedicated*.ovpn
+clear
+read "?Typ hier je novi-education mailadres: " email
+curl -X POST -s -d "email=$email" https://lab.arjenwiersma.nl > /dev/null
+echo " "
+echo "Log vervolgens in op je schoolmail op https://outlook.com"
+echo " "
+read "?Druk op enter als dit gelukt is..."
+echo " "
+echo "Als het goed is heb je een mail van Arjen met een link erin. Klik op die link."
+echo "Die link verwijst je door naar een webpagina waar je tijd in het lab kunt reserveren door op een knop te drukken. Druk op die knop."
+echo " "
+read "?Als dit gelukt is kun je hier op enter drukken..."
+echo " "
+echo "Het duurt ongeveer 15 minuten voordat je labverzoek verwerkt is."
+echo "Ondertussen kun je gaan naar https://enterprise.hackthebox.com en inloggen met je novi-education mailadres en HTB wachtwoord."
+echo " "
+read "?Druk op enter als dit gelukt is..."
+echo " "
+echo "Download vervolgens je VPN in de volgende stappen:"
+echo "1. Klik rechts bovenin op de HTB website op 'CONNECT TO HTB'"
+echo "2. Klik op Dedicated Lab (EU DEDICATED 23)"
+echo "3. Klik op OpenVPN"
+echo "4. Klik op het bolletje TCP 443"
+echo "5. Klik op 'DOWNLOAD VPN'"
+echo "6. Als je een downloadlocatie kunt kiezen, kies dan je Downloads folder"
+echo " "
+echo "Wanneer dit gelukt is kun je op enter drukken en zal je VPN starten."
+echo "Sluit dit terminal scherm niet!"
+echo "Zo lang de VPN aan staat kun je met boxen verbinden via het 'Novi Dedi Lab' op https://enterprise.hackthebox.com links onderin op de pagina."
+read "?Wanneer je klaar bent met het lab kun je dit scherm afsluiten met CTRL+C."
+sudo openvpn ~/Downloads/Dedicated*.ovpn
