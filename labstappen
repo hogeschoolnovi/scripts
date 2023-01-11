@@ -1,8 +1,7 @@
 #!/usr/bin/env zsh
-
-sudo killall openvpn
-rm ~/Downloads/Dedicated*.ovpn
-clear
+sudo killall openvpn 2>/dev/null
+setopt +o nomatch
+rm ~/Downloads/Dedicated*.ovpn 2>/dev/null
 read "?Typ hier je novi-education mailadres: " email
 curl -X POST -s -d "email=$email" https://lab.arjenwiersma.nl > /dev/null
 echo " "
@@ -29,7 +28,16 @@ echo "5. Klik op 'DOWNLOAD VPN'"
 echo "6. Als je een downloadlocatie kunt kiezen, kies dan je Downloads folder"
 echo " "
 echo "Wanneer dit gelukt is kun je op enter drukken en zal je VPN starten."
-echo "Sluit dit terminal scherm niet!"
 echo "Zo lang de VPN aan staat kun je met boxen verbinden via het 'Novi Dedi Lab' op https://enterprise.hackthebox.com links onderin op de pagina."
-read "?Wanneer je klaar bent met het lab kun je dit scherm afsluiten met CTRL+C."
-sudo openvpn ~/Downloads/Dedicated*.ovpn
+while :
+do
+	# Deze loop blijft testen of het ovpn al aanwezig is
+	if test -f ~/Downloads/Dedicated*.ovpn; then
+		sudo openvpn ~/Downloads/Dedicated*.ovpn 2>&1 > /tmp/openvpn.log &
+		echo $! > /tmp/openvpn_pid
+		echo "Je bent nu klaar om te gaan hack the boxen."
+		exit
+	else
+		read "?Heb je het al gedownload?"
+	fi
+done
