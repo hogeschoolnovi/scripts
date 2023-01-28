@@ -15,11 +15,11 @@ echo " "
 read "?Als dit gelukt is kun je hier op enter drukken..."
 echo " "
 echo "Als dit je eerste keer is duurt het ongeveer 15 minuten voordat je labverzoek verwerkt is."
-echo "Ondertussen kun je gaan naar https://enterprise.hackthebox.com en inloggen met je novi-education mailadres en HTB wachtwoord."
+echo "Ondertussen kun je in je Kali Linux VM navigeren naar https://enterprise.hackthebox.com en inloggen met je novi-education mailadres en HTB wachtwoord."
 echo " "
 read "?Druk op enter als dit gelukt is..."
 echo " "
-echo "Download vervolgens je VPN in de volgende stappen:"
+echo "Download daar vervolgens je VPN in de volgende stappen:"
 echo "1. Klik rechts bovenin op de HTB website op 'CONNECT TO HTB'"
 echo "2. Klik op Dedicated Lab (EU DEDICATED 23)"
 echo "3. Klik op OpenVPN"
@@ -27,17 +27,18 @@ echo "4. Klik op het bolletje TCP 443"
 echo "5. Klik op 'DOWNLOAD VPN'"
 echo "6. Als je een downloadlocatie kunt kiezen, kies dan je Downloads folder"
 echo " "
-echo "Wanneer dit gelukt is kun je op enter drukken en zal je VPN starten."
-echo "Zo lang de VPN aan staat kun je met boxen verbinden via het 'Novi Dedi Lab' op https://enterprise.hackthebox.com links onderin op de pagina."
+read "?Wanneer dit gelukt is kun je op enter drukken..."
+echo " "
 while :
 do
 	# Deze loop blijft testen of het ovpn al aanwezig is
 	if test -f ~/Downloads/Dedicated*.ovpn; then
 		sudo openvpn ~/Downloads/Dedicated*.ovpn 2>&1 > /tmp/openvpn.log &
 		echo $! > /tmp/openvpn_pid
-		echo "Je bent nu klaar om te gaan hack the boxen."
+		echo "Je bent nu klaar om te gaan hacken met Hack The Box!"
+		echo "Zo lang de VPN aan staat kun je met boxen verbinden via het 'Novi Dedi Lab' op https://enterprise.hackthebox.com links onderin op de pagina."
 		exit
 	else
-		read "?Heb je het al gedownload?"
+		read "?Weet je zeker dat je het VPN bestand hebt gedownload? Controleer of je een .ovpn bestand in je Downloads folder ziet staan!"
 	fi
 done
