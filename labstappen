@@ -39,6 +39,6 @@ do
 		echo "Zo lang de VPN aan staat kun je met boxen verbinden via het 'Novi Dedi Lab' op https://enterprise.hackthebox.com links onderin op de pagina."
 		exit
 	else
-		read "?Weet je zeker dat je het VPN bestand hebt gedownload? Controleer of je een .ovpn bestand in je Downloads folder ziet staan!"
+		read "?Weet je zeker dat je het VPN bestand hebt gedownload? Controleer of je een .ovpn bestand in je Downloads folder ziet staan! Zo ja, kun je op enter drukken..."
 	fi
 done
