@@ -5,3 +5,4 @@ tar -xzf workstation-$VERSION.tar.gz
 cd vmware-host-modules-workstation-$VERSION
 make
 sudo make install
+echo "Hoera! Gelukt! Even opnieuw opstarten en klaar is kees. (Hoop ik.)"
